@@ -6,7 +6,7 @@ const Header = () => {
   return (
     <>
       <div>
-        <Navbar></Navbar>
+        <Navbar />
         <SearchBar />
       </div>
     </>
