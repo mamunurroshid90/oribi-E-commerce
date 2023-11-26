@@ -6,12 +6,15 @@ import { FaSortDown } from "react-icons/fa";
 import { FaShoppingCart } from "react-icons/fa";
 import Cart from "../utilities/Cart";
 import UserCart from "../utilities/userCart";
+import CategoryCard from "../../layout/CategoryCard";
 
 const SearchBar = () => {
   let [showCart, setShowCart] = useState(false);
   let cartref = useRef();
   let [showUserCart, setShowUserCart] = useState(false);
   let userCartref = useRef();
+  let [showCategory, setShowCategory] = useState(false);
+  let categoryref = useRef();
 
   useEffect(() => {
     document.body.addEventListener("click", (e) => {
@@ -26,6 +29,11 @@ const SearchBar = () => {
       } else {
         setShowUserCart(false);
       }
+      if (categoryref.current.contains(e.target)) {
+        setShowCategory(true);
+      } else {
+        setShowCategory(false);
+      }
     });
   }, []);
 
@@ -33,11 +41,17 @@ const SearchBar = () => {
     <>
       <div className="bg-[#F5F5F3] py-6">
         <div className="max-w-container mx-auto flex justify-between items-center">
-          <div className="flex items-center gap-x-3 cursor-pointer">
-            <HiMiniBars2 />
-            <span className="text-[14px] capitalize font-normal font-dm">
-              Shop by Category
-            </span>
+          <div ref={categoryref} className="relative">
+            <div
+              onClick={() => setShowCategory(!showCategory)}
+              className="flex items-center gap-x-3 cursor-pointer"
+            >
+              <HiMiniBars2 />
+              <span className="text-[14px] capitalize font-normal font-dm">
+                Shop by Category
+              </span>
+            </div>
+            {showCategory && <CategoryCard />}
           </div>
           <div className="w-[600px] relative cursor-pointer">
             <search>
