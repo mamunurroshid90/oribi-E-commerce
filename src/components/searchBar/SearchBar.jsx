@@ -5,10 +5,13 @@ import { FaUser } from "react-icons/fa";
 import { FaSortDown } from "react-icons/fa";
 import { FaShoppingCart } from "react-icons/fa";
 import Cart from "../utilities/Cart";
+import UserCart from "../utilities/userCart";
 
 const SearchBar = () => {
   let [showCart, setShowCart] = useState(false);
   let cartref = useRef();
+  let [showUserCart, setShowUserCart] = useState(false);
+  let userCartref = useRef();
 
   useEffect(() => {
     document.body.addEventListener("click", (e) => {
@@ -18,6 +21,11 @@ const SearchBar = () => {
         setShowCart(false);
       }
       // console.log(cartref.current.contains(e.target));
+      if (userCartref.current.contains(e.target)) {
+        setShowUserCart(true);
+      } else {
+        setShowUserCart(false);
+      }
     });
   }, []);
 
@@ -42,9 +50,15 @@ const SearchBar = () => {
             <IoSearch className="absolute top-[50%] translate-y-[-50%] right-4 " />
           </div>
           <div className="flex justify-end gap-x-10 items-center">
-            <div className="flex items-center gap-2 cursor-pointer">
-              <FaUser />
-              <FaSortDown />
+            <div ref={userCartref} className="relative">
+              <div
+                onClick={() => setShowUserCart(!showUserCart)}
+                className="flex items-center gap-2 cursor-pointer"
+              >
+                <FaUser />
+                <FaSortDown />
+              </div>
+              {showUserCart && <UserCart />}
             </div>
             <div ref={cartref} className="cursor-pointer relative">
               <FaShoppingCart
