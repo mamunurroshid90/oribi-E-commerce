@@ -1,6 +1,6 @@
 import React from "react";
 
-const UserCart = () => {
+const UserCard = () => {
   return (
     <div className=" w-[205px] border-[#dedcdc] border-[1px] absolute right-0 mt-3">
       <a
@@ -19,4 +19,4 @@ const UserCart = () => {
   );
 };
 
-export default UserCart;
+export default UserCard;

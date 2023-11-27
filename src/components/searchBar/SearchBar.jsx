@@ -5,8 +5,8 @@ import { FaUser } from "react-icons/fa";
 import { FaSortDown } from "react-icons/fa";
 import { FaShoppingCart } from "react-icons/fa";
 import Cart from "../utilities/Cart";
-import UserCart from "../utilities/userCart";
 import CategoryCard from "../../layout/CategoryCard";
+import UserCard from "../utilities/UserCard";
 
 const SearchBar = () => {
   let [showCart, setShowCart] = useState(false);
@@ -72,7 +72,7 @@ const SearchBar = () => {
                 <FaUser />
                 <FaSortDown />
               </div>
-              {showUserCart && <UserCart />}
+              {showUserCart && <UserCard />}
             </div>
             <div ref={cartref} className="cursor-pointer relative">
               <FaShoppingCart
