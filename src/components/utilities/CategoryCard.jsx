@@ -1,6 +1,6 @@
 import React from "react";
-import List from "../components/utilities/List";
-import ListItem from "../components/utilities/ListItem";
+import List from "./List";
+import ListItem from "./ListItem";
 
 const CategoryCard = () => {
   return (

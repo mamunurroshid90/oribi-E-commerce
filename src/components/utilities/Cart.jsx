@@ -1,5 +1,6 @@
 import React from "react";
 import { RxCross2 } from "react-icons/rx";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
   return (
@@ -44,18 +45,19 @@ const Cart = () => {
             Subtotal: <span className="text-[#262626] font-bold">$44.00</span>
           </h2>
           <div className="flex justify-between">
-            <a
+            <Link
+              to="cart"
               className="py-4 px-10 border border-[#2B2B2B] inline-block mt-3 font-dm text-[#262626] text-sm font-bold hover:bg-[#262626] hover:text-white transition-all duration-300"
-              href="#"
             >
               View Cart
-            </a>
-            <a
+            </Link>
+
+            <Link
+              to="checkout"
               className="py-4 px-10 border border-[#2B2B2B] inline-block mt-3 font-dm text-[#262626] text-sm font-bold hover:bg-[#262626] hover:text-white transition-all duration-300"
-              href="#"
             >
               Checkout
-            </a>
+            </Link>
           </div>
         </div>
       </div>

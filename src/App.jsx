@@ -11,6 +11,8 @@ import About from "./pages/about/About";
 import Contact from "./pages/contact/Contact";
 import Journal from "./pages/journal/Journal";
 import Error from "./components/error/Error";
+import CartPage from "./pages/cart/CartPage";
+import Checkout from "./pages/checkout/Checkout";
 
 function App() {
   const router = createBrowserRouter(
@@ -22,6 +24,8 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/journal" element={<Journal />} />
+          <Route path="/cart" element={<CartPage />} />
+          <Route path="/checkout" element={<Checkout />} />
           <Route path="*" element={<Error />} />
         </Route>
       </>

@@ -5,7 +5,7 @@ import { FaUser } from "react-icons/fa";
 import { FaSortDown } from "react-icons/fa";
 import { FaShoppingCart } from "react-icons/fa";
 import Cart from "../utilities/Cart";
-import CategoryCard from "../../layout/CategoryCard";
+import CategoryCard from "../utilities/CategoryCard";
 import UserCard from "../utilities/UserCard";
 
 const SearchBar = () => {
@@ -23,7 +23,6 @@ const SearchBar = () => {
       } else {
         setShowCart(false);
       }
-      // console.log(cartref.current.contains(e.target));
       if (userCartref.current.contains(e.target)) {
         setShowUserCart(true);
       } else {
