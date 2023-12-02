@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .checkoutHeading {
+    @apply text-[39px] font-dm font-bold leading-normal pb-[42px];
+  }
+}
