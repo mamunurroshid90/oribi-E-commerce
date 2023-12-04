@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Image from "../utilities/Image";
 import FooterLogo from "../../assets/images/logo.png";
+import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 
 const Footer = () => {
   let menuArr = [
@@ -58,7 +59,7 @@ const Footer = () => {
   return (
     <>
       <div className="bg-[#F5F5F3] py-14">
-        <div className="max-w-container mx-auto flex  gap-x-36">
+        <div className="max-w-container mx-auto flex gap-x-36">
           <div className="flex items-center gap-x-36">
             <div>
               <h5 className="text-[#262626] font-bold text-base font-dm uppercase">
@@ -122,6 +123,22 @@ const Footer = () => {
                 <Image source={FooterLogo} alt={"footer log"} />
               </Link>
             </div>
+          </div>
+        </div>
+        <div className="max-w-container mx-auto flex justify-between items-center mt-16">
+          <div className="flex gap-[26px] text-2xl text-[#262626]">
+            <Link to="#">
+              <FaFacebookF />
+            </Link>
+            <Link to="#">
+              <FaLinkedinIn />
+            </Link>
+            <Link to="#">
+              <FaInstagram />
+            </Link>
+          </div>
+          <div className="text-[#6D6D6D] font-dm text-sm text-right leading-6">
+            <span>2020 Orebi Minimal eCommerce Figma Template by FDR 2304</span>
           </div>
         </div>
       </div>
