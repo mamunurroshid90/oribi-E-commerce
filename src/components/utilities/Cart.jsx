@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import { RxCross2 } from "react-icons/rx";
-import { Link } from "react-router-dom";
-import Image from "./Image";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import React, { useState } from "react"
+import { RxCross2 } from "react-icons/rx"
+import { Link } from "react-router-dom"
+import Image from "./Image"
+import { ToastContainer, toast } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
 
 const Cart = () => {
   const [cartInfo, setCartInfo] = useState([
@@ -27,11 +27,11 @@ const Cart = () => {
       title: 'Value top Monitor 22" ',
       price: "9200",
     },
-  ]);
+  ])
 
   let handleItemRemove = (item) => {
-    let updateCart = cartInfo.filter((cartItem) => cartItem.id !== item.id);
-    setCartInfo(updateCart);
+    let updateCart = cartInfo.filter((cartItem) => cartItem.id !== item.id)
+    setCartInfo(updateCart)
     toast("Cart item remove", {
       position: "bottom-right",
       autoClose: 3000,
@@ -41,12 +41,12 @@ const Cart = () => {
       draggable: true,
       progress: undefined,
       theme: "dark",
-    });
-  };
+    })
+  }
   return (
     <>
       <ToastContainer />
-      <div className="w-[360px] border-[#dedcdc] border-[1px] absolute right-0 mt-3">
+      <div className="w-[360px] border-[#dedcdc] border-[1px] absolute right-0 mt-3 z-10">
         <div className="flex flex-col gap-y-4 p-5">
           {cartInfo.map((item, index) => (
             <div key={index} className="bg-[#F5F5F3] flex gap-5 items-center">
@@ -91,7 +91,7 @@ const Cart = () => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Cart;
+export default Cart

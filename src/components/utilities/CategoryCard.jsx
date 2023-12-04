@@ -1,22 +1,22 @@
-import React, { useEffect, useState } from "react";
-import List from "./List";
-import ListItem from "./ListItem";
-import axios from "axios";
+import React, { useEffect, useState } from "react"
+import List from "./List"
+import ListItem from "./ListItem"
+import axios from "axios"
 // import { data } from "autoprefixer";
 
 const CategoryCard = () => {
-  const [category, setCategories] = useState();
+  const [category, setCategories] = useState()
 
   useEffect(() => {
     let response = async () => {
-      let data = await axios.get("https://dummyjson.com/products/categories");
-      setCategories(data.data);
-    };
-    response();
-  }, []);
-  console.log(category);
+      let data = await axios.get("https://dummyjson.com/products/categories")
+      setCategories(data.data)
+    }
+    response()
+  }, [])
+  console.log(category)
   return (
-    <div className="w-[263px] bg-[#262626] absolute left-0 mt-3">
+    <div className="w-[263px] bg-[#262626] absolute left-0 mt-3 z-10">
       <List style="h-[350px] overflow-y-scroll scrollbar-thin scrollbar-track-inherit">
         {category?.map((item, index) => (
           <ListItem
@@ -27,7 +27,7 @@ const CategoryCard = () => {
         ))}
       </List>
     </div>
-  );
-};
+  )
+}
 
-export default CategoryCard;
+export default CategoryCard
