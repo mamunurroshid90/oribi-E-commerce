@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react"
 import List from "./List"
 import ListItem from "./ListItem"
 import axios from "axios"
-// import { data } from "autoprefixer";
 
 const CategoryCard = () => {
   const [category, setCategories] = useState()
