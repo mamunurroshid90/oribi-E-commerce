@@ -7,7 +7,7 @@ const Home = () => {
   let [count, setCount] = useState(0)
 
   const data = useSelector((state) => state)
-  console.log(data)
+  // console.log(data)
   const dispatch = useDispatch()
 
   const handleIncrement = () => {
