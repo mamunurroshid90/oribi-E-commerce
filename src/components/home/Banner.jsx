@@ -65,7 +65,7 @@ const Banner = () => {
         {arr.map((item, index) => (
           <Link key={index} to="#" className="!block">
             <Image
-              className="w-full h-full object-cover leading-[0] block"
+              className="max-w-full h-auto object-cover leading-[0] block"
               source={item}
               alt="banner img"
             />

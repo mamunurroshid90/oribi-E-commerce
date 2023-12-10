@@ -3,7 +3,7 @@ import { useSelector } from "react-redux"
 
 const Journal = () => {
   let countValue = useSelector((state) => state)
-  console.log(countValue.counter.value)
+  // console.log(countValue.counter.value)
   return (
     <div className="max-w-container mx-auto">
       <h1 className="text-3xl font-bold">
