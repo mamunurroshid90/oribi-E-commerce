@@ -1,7 +1,8 @@
 import React, { useState } from "react"
 import Banner from "../../components/home/Banner"
 import { useSelector, useDispatch } from "react-redux"
-import { increment, decrement } from "../../slices/CounterSlice"
+import { increment, decrement } from "../../slice/counterSlice"
+// import { increment, decrement } from "../../slices/counterSlice"
 
 const Home = () => {
   let [count, setCount] = useState(0)
