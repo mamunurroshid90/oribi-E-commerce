@@ -1,12 +1,49 @@
-import React, { useState } from "react";
-import BreadCrumbs from "../../components/utilities/BreadCrumbs";
-import Paragraph from "../../components/utilities/Paragraph";
-import Input from "../../components/utilities/Input";
+import React, { useEffect, useState } from "react"
+import BreadCrumbs from "../../components/utilities/BreadCrumbs"
+import Paragraph from "../../components/utilities/Paragraph"
+import Input from "../../components/utilities/Input"
+import { Link } from "react-router-dom"
 
 const Checkout = () => {
-  let pathname = window.location.href;
-  let pathArray = pathname.split("/");
-  let finalPath = pathArray[pathArray.length - 1];
+  let pathname = window.location.href
+  let pathArray = pathname.split("/")
+  let finalPath = pathArray[pathArray.length - 1]
+
+  let checkoutProduct = [
+    {
+      id: 0,
+      productName: "apple",
+      price: 520,
+      quantity: 2,
+    },
+    {
+      id: 1,
+      productName: "watch",
+      price: 100,
+      quantity: 2,
+    },
+    {
+      id: 2,
+      productName: "monitor",
+      price: 260,
+      quantity: 2,
+    },
+    {
+      id: 3,
+      productName: "television",
+      price: 80,
+      quantity: 1,
+    },
+  ]
+
+  let [total, setTotal] = useState(0)
+  useEffect(() => {
+    for (let i = 0; i < checkoutProduct.length; i++) {
+      total += checkoutProduct[i].price * checkoutProduct[i].quantity
+      setTotal(total)
+    }
+  }, [])
+  // console.log(total)
 
   const countryName = [
     "Afghanistan",
@@ -258,9 +295,9 @@ const Checkout = () => {
     "Zambia",
     "Zimbabwe",
     "Åland Islands",
-  ];
+  ]
 
-  const [couponShow, setCouponShow] = useState(false);
+  const [couponShow, setCouponShow] = useState(false)
   return (
     <section className="pt-[124px] pb-[140px]">
       <div className="max-w-container mx-auto">
@@ -304,7 +341,7 @@ const Checkout = () => {
             </form>
           </div>
         )}
-        <div>
+        <div className="w-[1055px]">
           <h2 className="checkoutHeading mt-[120px]">Billing Details</h2>
           <form>
             <div>
@@ -465,10 +502,105 @@ const Checkout = () => {
             </div>
           </form>
           <h2 className="checkoutHeading mt-[130px]">Additional Information</h2>
+          <div>
+            <label
+              htmlFor=""
+              className="text-[#262626] text-base font-bold leading-[23px] block"
+            >
+              Other Notes (optional)
+            </label>
+            <textarea
+              className="w-full h-[100px] p-5 mt-[10px] border-b border-[#f0f0f0]"
+              name="other notes"
+              id=""
+              placeholder="Notes about your order, e.g. special notes for delivery."
+            ></textarea>
+          </div>
+        </div>
+        <div className="w-[644px]">
+          <h2 className="checkoutHeading mt-[130px]">Your Order</h2>
+          <table className="w-full">
+            <tr>
+              <td className="border border-[#f0f0f0] py-4 px-5 w-1/2 font-dm text-[#262626] text-base font-bold leading-[23px] capitalize">
+                Product
+              </td>
+              <td className="border border-[#f0f0f0] py-4 px-5 w-1/2 font-dm text-[#767676] text-base font-bold leading-[30px] capitalize">
+                Total
+              </td>
+            </tr>
+            <tbody>
+              {checkoutProduct.map((item, index) => (
+                <tr key={index}>
+                  <td className="border border-[#f0f0f0] py-4 px-5 w-1/2 ">
+                    <h5 className="font-dm text-[#262626] text-base font-bold leading-[23px] capitalize">
+                      {item.productName} x {item.quantity}
+                    </h5>
+                  </td>
+                  <td className="border border-[#f0f0f0] py-4 px-5 w-1/2 ">
+                    <p className="font-dm text-[#767676] text-base font-bold leading-[30px] capitalize">
+                      ${item.quantity * item.price}
+                    </p>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+            <tr>
+              <td className="border border-[#f0f0f0] py-4 px-5 w-1/2 ">
+                <h5 className="font-dm text-[#262626] text-base font-bold leading-[23px] capitalize">
+                  subtotal
+                </h5>
+              </td>
+              <td className="border border-[#f0f0f0] py-4 px-5 w-1/2 ">
+                <p className="font-dm text-[#767676] text-base font-bold leading-[30px] capitalize">
+                  ${2230}
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td className="border border-[#f0f0f0] py-4 px-5 w-1/2 ">
+                <h5 className="font-dm text-[#262626] text-base font-bold leading-[23px] capitalize">
+                  total
+                </h5>
+              </td>
+              <td className="border border-[#f0f0f0] py-4 px-5 w-1/2 ">
+                <p className="font-dm text-[#767676] text-base font-bold leading-[30px] capitalize">
+                  ${total}
+                </p>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div className="mt-[74px]">
+          <div>
+            <div className="flex items-center mb-6">
+              <input type="radio" name="bank" id="" />
+              <label
+                htmlFor=""
+                className="font-dm text-[#262626] font-bold text-base leading-[23px] ml-[11px]"
+              >
+                Bank
+              </label>
+            </div>
+            <div className="flex items-center mb-6">
+              <input type="radio" name="bank" id="" />
+              <label
+                htmlFor=""
+                className="font-dm text-[#262626] font-bold text-base leading-[23px] ml-[11px]"
+              >
+                Bank 2
+              </label>
+            </div>
+          </div>
+          <Link
+            to="#"
+            className="font-dm inline-block text-white text-center py-4 px-11 bg-black font-bold leading-normal"
+          >
+            Proceed to Bank
+          </Link>
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Checkout;
+export default Checkout
