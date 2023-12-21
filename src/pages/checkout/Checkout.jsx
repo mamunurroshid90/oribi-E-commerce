@@ -45,6 +45,54 @@ const Checkout = () => {
   }, [])
   // console.log(total)
 
+  let [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    companyName: "",
+  })
+
+  let [error, setError] = useState({
+    firstName: "",
+    lastName: "",
+    companyName: "",
+  })
+
+  let handleForm = (e) => {
+    let { name, value } = e.target
+    setFormData({ ...formData, [name]: value })
+    if (name == firstName) {
+      setError({ ...error, firstName: "" })
+    }
+    if (name == lastName) {
+      setError({ ...error, lastName: "" })
+    }
+    if (name == countryName) {
+      setError({ ...error, companyName: "" })
+    }
+  }
+
+  let handleSubmit = () => {
+    if (!formData.firstName) {
+      setError({ ...error, firstName: "please Enter your first name" })
+    } else {
+      setError({ ...error, firstName: "" })
+    }
+    if (!formData.lastName) {
+      setError({ ...error, lastName: "please Enter your last name" })
+    } else {
+      setError({ ...error, lastName: "" })
+    }
+    if (!formData.companyName) {
+      setError({ ...error, companyName: "please Enter your company name" })
+    } else {
+      setError({ ...error, companyName: "" })
+    }
+
+    // console.log(formData.firstName)
+    // console.log(formData.lastName)
+    // console.log(formData.companyName)
+  }
+
   const countryName = [
     "Afghanistan",
     "Albania",
@@ -358,7 +406,11 @@ const Checkout = () => {
                     name="firstName"
                     placeholder="First Name"
                     className="w-full outline-none mt-[10px] pb-4"
+                    onChange={handleForm}
                   />
+                  <span className="font-dm text-sm text-red-600">
+                    {error.firstName}
+                  </span>
                 </div>
                 <div className="w-1/2 border-b border-b-[#e0e0e0]">
                   <label
@@ -372,7 +424,11 @@ const Checkout = () => {
                     name="lastName"
                     placeholder="Last Name"
                     className="w-full outline-none mt-[10px] pb-4"
+                    onChange={handleForm}
                   />
+                  <span className="font-dm text-sm text-red-600">
+                    {error.lastName}
+                  </span>
                 </div>
               </div>
               <div className="border-b border-b-[#e0e0e0] pt-6">
@@ -387,7 +443,11 @@ const Checkout = () => {
                   name="companyName"
                   placeholder="Company Name"
                   className="w-full outline-none mt-[10px] pb-4"
+                  onChange={handleForm}
                 />
+                <span className="font-dm text-sm text-red-600">
+                  {error.companyName}
+                </span>
               </div>
               <div className="border-b border-b-[#e0e0e0] pt-6 w-full">
                 <label
@@ -594,6 +654,7 @@ const Checkout = () => {
           <Link
             to="#"
             className="font-dm inline-block text-white text-center py-4 px-11 bg-black font-bold leading-normal"
+            onClick={handleSubmit}
           >
             Proceed to Bank
           </Link>
