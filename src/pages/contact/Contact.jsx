@@ -16,7 +16,7 @@ const Contact = () => {
   return (
     <section>
       <div className="max-w-container mx-auto">
-        <div className="max-w-container mx-auto mt-[124px] mb-[125px]">
+        <div className="mt-[124px] mb-[125px]">
           <h3 className="font-dm text-[49px] capitalize text-[#262626] font-bold leading-normal mb-3">
             contact
           </h3>

@@ -40,7 +40,6 @@ function App() {
             <Route path="/address" element={<Address />} />
             <Route path="/accountDetails" element={<AccountDetails />} />
           </Route>
-
           <Route path="/loginPage" element={<LoginPage />} />
           <Route path="*" element={<Error />} />
         </Route>
