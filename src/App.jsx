@@ -20,6 +20,7 @@ import Others from "./pages/myAccount/Others"
 import Download from "./pages/myAccount/Download"
 import Address from "./pages/myAccount/Address"
 import AccountDetails from "./pages/myAccount/AccountDetails"
+import SignUpPage from "./pages/signUp/SignUpPage"
 
 function App() {
   const router = createBrowserRouter(
@@ -41,6 +42,7 @@ function App() {
             <Route path="/accountDetails" element={<AccountDetails />} />
           </Route>
           <Route path="/loginPage" element={<LoginPage />} />
+          <Route path="/signUpPage" element={<SignUpPage />} />
           <Route path="*" element={<Error />} />
         </Route>
       </>

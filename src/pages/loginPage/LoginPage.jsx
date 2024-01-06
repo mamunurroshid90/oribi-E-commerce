@@ -28,7 +28,7 @@ const LoginPage = () => {
           </h2>
           <form action="" className="w-[1055px] border-b border-[#f0f0f0]">
             <div className="flex justify-between gap-[39px] mb-10">
-              <div className="flex flex-col w-1/2">
+              <div className="flex flex-col w-1/2 border-b border-[#f0f0f0]">
                 <label
                   htmlFor=""
                   className="font-dm text-[#262626] text-base font-bold leading-[23px] capitalize mb-[10px]"
@@ -42,7 +42,7 @@ const LoginPage = () => {
                   placeholder="company@domain.com"
                 />
               </div>
-              <div className="flex flex-col w-1/2">
+              <div className="flex flex-col w-1/2 border-b border-[#f0f0f0]">
                 <label
                   htmlFor=""
                   className="font-dm text-[#262626] text-base font-bold leading-[23px] capitalize mb-[10px]"
