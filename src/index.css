@@ -7,3 +7,42 @@
     @apply text-[39px] font-dm font-bold leading-normal pb-[42px];
   }
 }
+
+.accordion__button::before {
+  display: inline-block;
+  content: "";
+  height: 10px;
+  width: 10px;
+  margin-right: 12px;
+  border-bottom: 2px solid currentColor;
+  border-right: 2px solid currentColor;
+  transform: rotate(-45deg);
+  display: none;
+}
+
+.accordion__button::after {
+  content: "";
+  --b: 4px; /* the thickness */
+  width: 20px; /* the size */
+  aspect-ratio: 1;
+  border: none;
+  margin: 10px;
+  background: conic-gradient(
+      from 90deg at var(--b) var(--b),
+      #fff 90deg,
+      #000 0
+    )
+    calc(100% + var(--b) / 2) calc(100% + var(--b) / 2) / calc(50% + var(--b))
+    calc(50% + var(--b));
+  display: inline-block;
+}
+.accordion__button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.accordion__button[aria-expanded="true"]::after,
+.accordion__button[aria-selected="true"]::after {
+  transform: rotate(45deg);
+}

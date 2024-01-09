@@ -41,8 +41,8 @@ function App() {
             <Route path="/address" element={<Address />} />
             <Route path="/accountDetails" element={<AccountDetails />} />
           </Route>
-          <Route path="/loginPage" element={<LoginPage />} />
-          <Route path="/signUpPage" element={<SignUpPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/signup" element={<SignUpPage />} />
           <Route path="*" element={<Error />} />
         </Route>
       </>
