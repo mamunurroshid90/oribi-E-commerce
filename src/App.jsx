@@ -21,6 +21,7 @@ import Download from "./pages/myAccount/Download"
 import Address from "./pages/myAccount/Address"
 import AccountDetails from "./pages/myAccount/AccountDetails"
 import SignUpPage from "./pages/signUp/SignUpPage"
+import SingleProduct from "./components/product/SingleProduct"
 
 function App() {
   const router = createBrowserRouter(
@@ -34,6 +35,7 @@ function App() {
           <Route path="/journal" element={<Journal />} />
           <Route path="/cart" element={<CartPage />} />
           <Route path="/checkout" element={<Checkout />} />
+          <Route path="/product/:id" element={<SingleProduct />} />
           <Route element={<MyAccount />}>
             <Route index path="/dashboard" element={<Dashboard />} />
             <Route path="/others" element={<Others />} />

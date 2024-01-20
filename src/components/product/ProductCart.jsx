@@ -27,7 +27,7 @@ const ProductCart = ({
   return (
     <div>
       <div>
-        <div className="h-[370px] bg-red-400 relative group overflow-hidden">
+        <div className="h-[370px] relative group overflow-hidden">
           <Link to={`/product/${id}`}>
             <Image
               className="w-full h-full object-cover"
