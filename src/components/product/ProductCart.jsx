@@ -4,6 +4,9 @@ import { FaHeart } from "react-icons/fa"
 import { HiOutlineRefresh } from "react-icons/hi"
 import { FaShoppingCart } from "react-icons/fa"
 import { Link } from "react-router-dom"
+import { useSelector, useDispatch } from "react-redux"
+import { addToCart } from "../../slice/cartSlice"
+import { ToastContainer, toast } from "react-toastify"
 
 const ProductCart = ({
   id,
@@ -13,8 +16,13 @@ const ProductCart = ({
   discount,
   color,
   productImage,
+  allInfo,
 }) => {
   let [newProduct, setNewProduct] = useState(false)
+
+  const dispatch = useDispatch()
+  const data = useSelector((state) => state)
+  console.log(data.cartinfo.value.length)
 
   useEffect(() => {
     if (isNew == "true") {
@@ -24,8 +32,14 @@ const ProductCart = ({
     }
   }, [])
 
+  let handleAddToCart = (SingleProduct) => {
+    dispatch(addToCart(SingleProduct))
+    toast("add to cart successfully")
+  }
+
   return (
     <div>
+      <ToastContainer />
       <div>
         <div className="h-[370px] relative group overflow-hidden">
           <Link to={`/product/${id}`}>
@@ -58,13 +72,16 @@ const ProductCart = ({
                 <FaHeart />
               </li>
               <li className="flex items-center gap-4 justify-end">
-                <span className="inline-flex text-[#767676] text-base font-dm capitalize hover:text-[#262626] transition-all duration-300">
+                <span className="inline-flex text-[#767676] text-base font-dm capitalize hover:text-[#262626] transition-all duration-300 cursor-pointer">
                   Compare
                 </span>
                 <HiOutlineRefresh />
               </li>
-              <li className="flex items-center gap-4 justify-end">
-                <span className="inline-flex text-[#767676] text-base font-dm capitalize hover:text-[#262626] transition-all duration-300">
+              <li
+                onClick={() => handleAddToCart(allInfo)}
+                className="flex items-center gap-4 justify-end"
+              >
+                <span className="inline-flex text-[#767676] text-base font-dm capitalize hover:text-[#262626] transition-all duration-300 cursor-pointer">
                   Add to Cart
                 </span>
                 <FaShoppingCart />

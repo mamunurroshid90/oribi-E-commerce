@@ -4,30 +4,33 @@ import { Link } from "react-router-dom"
 import Image from "./Image"
 import { ToastContainer, toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
+import { useSelector, useDispatch } from "react-redux"
+
+//   id: 0,
+//   title: "I phone 15 pro",
+//   price: "150000",
+// },
+// {
+//   id: 1,
+//   title: "titan watch",
+//   price: "2500",
+// },
+// {
+//   id: 2,
+//   title: "Logitech Headphone",
+//   price: "1700",
+// },
+// {
+//   id: 3,
+//   title: 'Value top Monitor 22" ',
+//   price: "9200",
+// },
 
 const Cart = () => {
-  const [cartInfo, setCartInfo] = useState([
-    {
-      id: 0,
-      title: "I phone 15 pro",
-      price: "150000",
-    },
-    {
-      id: 1,
-      title: "titan watch",
-      price: "2500",
-    },
-    {
-      id: 2,
-      title: "Logitech Headphone",
-      price: "1700",
-    },
-    {
-      id: 3,
-      title: 'Value top Monitor 22" ',
-      price: "9200",
-    },
-  ])
+  const data = useSelector((state) => state)
+  let cartItemValue = data.cartinfo && data.cartinfo.value
+  const [cartInfo, setCartInfo] = useState(cartItemValue)
+  // console.log(cartInfo)
 
   let handleItemRemove = (item) => {
     let updateCart = cartInfo.filter((cartItem) => cartItem.id !== item.id)
@@ -56,10 +59,10 @@ const Cart = () => {
               <div className="flex justify-between w-[220px] items-center">
                 <div className="flex flex-col gap-y-3">
                   <h4 className="text-[#262626] font-dm text-sm font-bold">
-                    {item.title}
+                    {item.productName}
                   </h4>
                   <h5 className="text-[#262626] font-dm text-sm font-bold">
-                    ${item.price}
+                    ${item.productPrice}
                   </h5>
                 </div>
                 <div onClick={() => handleItemRemove(item)}>

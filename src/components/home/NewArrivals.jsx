@@ -23,6 +23,7 @@ const NewArrivals = () => {
       discount: "false",
       color: "false",
       productImage: AnalogueWatch,
+      stock: 20,
     },
     {
       id: 1,
@@ -32,6 +33,7 @@ const NewArrivals = () => {
       discount: "10",
       color: "black",
       productImage: DigitalWatch,
+      stock: 0,
     },
     {
       id: 2,
@@ -41,6 +43,7 @@ const NewArrivals = () => {
       discount: "false",
       color: "red",
       productImage: Bag,
+      stock: 12,
     },
     {
       id: 3,
@@ -50,6 +53,7 @@ const NewArrivals = () => {
       discount: "false",
       color: "gray",
       productImage: Doll,
+      stock: 50,
     },
     {
       id: 4,
@@ -59,6 +63,17 @@ const NewArrivals = () => {
       discount: "20",
       color: "blue",
       productImage: Computer,
+      stock: 17,
+    },
+    {
+      id: 5,
+      productName: "mobile",
+      productPrice: "52000",
+      isNew: "false",
+      discount: "20",
+      color: "blue",
+      productImage: Computer,
+      stock: 0,
     },
   ]
   return (
@@ -79,7 +94,7 @@ const NewArrivals = () => {
             }}
           >
             {allProducts.map((item, index) => (
-              <SwiperSlide>
+              <SwiperSlide key={index}>
                 <ProductCart
                   id={item.id}
                   productImage={item.productImage}
@@ -88,6 +103,7 @@ const NewArrivals = () => {
                   isNew={item.isNew}
                   discount={item.discount}
                   color={item.color}
+                  allInfo={item}
                 />
               </SwiperSlide>
             ))}

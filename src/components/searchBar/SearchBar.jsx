@@ -1,40 +1,43 @@
-import React, { useEffect, useRef, useState } from "react";
-import { HiMiniBars2 } from "react-icons/hi2";
-import { IoSearch } from "react-icons/io5";
-import { FaUser } from "react-icons/fa";
-import { FaSortDown } from "react-icons/fa";
-import { FaShoppingCart } from "react-icons/fa";
-import Cart from "../utilities/Cart";
-import CategoryCard from "../utilities/CategoryCard";
-import UserCard from "../utilities/UserCard";
+import React, { useEffect, useRef, useState } from "react"
+import { HiMiniBars2 } from "react-icons/hi2"
+import { IoSearch } from "react-icons/io5"
+import { FaUser } from "react-icons/fa"
+import { FaSortDown } from "react-icons/fa"
+import { FaShoppingCart } from "react-icons/fa"
+import Cart from "../utilities/Cart"
+import CategoryCard from "../utilities/CategoryCard"
+import UserCard from "../utilities/UserCard"
+import { useSelector, useDispatch } from "react-redux"
 
 const SearchBar = () => {
-  let [showCart, setShowCart] = useState(false);
-  let cartref = useRef();
-  let [showUserCart, setShowUserCart] = useState(false);
-  let userCartref = useRef();
-  let [showCategory, setShowCategory] = useState(false);
-  let categoryref = useRef();
+  let [showCart, setShowCart] = useState(false)
+  let cartref = useRef()
+  let [showUserCart, setShowUserCart] = useState(false)
+  let userCartref = useRef()
+  let [showCategory, setShowCategory] = useState(false)
+  let categoryref = useRef()
+
+  const data = useSelector((state) => state)
 
   useEffect(() => {
     document.body.addEventListener("click", (e) => {
       if (cartref.current.contains(e.target)) {
-        setShowCart(true);
+        setShowCart(true)
       } else {
-        setShowCart(false);
+        setShowCart(false)
       }
       if (userCartref.current.contains(e.target)) {
-        setShowUserCart(true);
+        setShowUserCart(true)
       } else {
-        setShowUserCart(false);
+        setShowUserCart(false)
       }
       if (categoryref.current.contains(e.target)) {
-        setShowCategory(true);
+        setShowCategory(true)
       } else {
-        setShowCategory(false);
+        setShowCategory(false)
       }
-    });
-  }, []);
+    })
+  }, [])
 
   return (
     <>
@@ -78,13 +81,18 @@ const SearchBar = () => {
                 onClick={() => setShowCart(!showCart)}
                 className="text-lg"
               />
+              <div className=" absolute w-10 h-10 bg-red-500 top-3 left-3 rounded-full flex items-center justify-center text-white font-dm">
+                <span className="text-white text-xl">
+                  {data.cartinfo && data.cartinfo.value.length}
+                </span>
+              </div>
               {showCart && <Cart />}
             </div>
           </div>
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default SearchBar;
+export default SearchBar
