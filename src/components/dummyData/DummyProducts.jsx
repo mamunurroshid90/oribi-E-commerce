@@ -1,4 +1,4 @@
-import Product1 from "../../assets/images/productImage/digital watch.jpg"
+import Product1 from "../../assets/images/productImage/analogue watch.jpg"
 const newArrivalsProduct = [
   {
     id: 0,
